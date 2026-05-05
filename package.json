@@ -2,9 +2,6 @@
   "name": "qa-practice-astro",
   "type": "module",
   "version": "0.0.1",
-  "engines": {
-    "node": ">=22.12.0"
-  },
   "scripts": {
     "dev": "astro dev --host 0.0.0.0 --port 3000",
     "build": "astro build",
@@ -12,6 +9,6 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^6.2.2"
+    "astro": "^5.0.0"
   }
 }
