@@ -6,14 +6,14 @@ export default defineConfig({
     host: true,
     port: 3000,
   },
-  // Astro forwards `vite` config to its underlying Vite dev server. The
-  // sandbox prep wrapper at /tmp/.viiibin/vite-dev.config.ts only applies to
-  // projects with a top-level vite.config — Astro's vite is internal, so we
-  // need to set allowedHosts here directly to bypass Vite's CVE-2025-30208
-  // host check (the e2b.app preview subdomain is not localhost).
+  // Astro 5 forwards this `vite` block into its underlying Vite dev server.
+  // Vite enforces a host allow-list (CVE-2025-30208) and rejects the e2b.app
+  // preview subdomain by default. Allow the entire e2b.app domain (leading
+  // dot = match all subdomains) so the matrix's preview navigation works.
   vite: {
     server: {
-      allowedHosts: true,
+      host: '0.0.0.0',
+      allowedHosts: ['.e2b.app', 'localhost', '127.0.0.1'],
     },
   },
 })
